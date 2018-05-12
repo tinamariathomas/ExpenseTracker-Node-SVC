@@ -1,8 +1,9 @@
 import * as express from "express";
-import healthCheckHandler from "./handlers/health";
+import routes from './routes';
+
 const app = express();
 
-app.get("/", healthCheckHandler);
+routes.forEach((route) => app.get(route.path, route.handler));
 
 // tslint:disable-next-line:no-console
 app.listen(3000, () => console.log("Example app listening on port 3000!"));
