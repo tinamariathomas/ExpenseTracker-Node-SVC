@@ -1,0 +1,8 @@
+{
+    "dev": {
+      "driver": "pg",
+      "user": {"ENV": "PG_USERNAME"},
+      "host": "localhost",
+      "database": "expense_tracker"
+    }
+}
