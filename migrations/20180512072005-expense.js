@@ -13,7 +13,7 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db, callback) {
   return db.createTable(expenseTable, {
-    id: { type: 'int', primaryKey: true },
+    id: { type: 'int', primaryKey: true, autoIncrement: true },
     description: 'string',
     amount: 'int'
   }, callback);

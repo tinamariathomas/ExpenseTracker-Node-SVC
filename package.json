@@ -6,16 +6,19 @@
   "scripts": {
     "test": "jest .",
     "start": "ts-node --project tsconfig.json src/app.ts",
+    "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/app.ts",
     "build": "tsc -p .",
     "lint": "tslint 'src/**/*.ts'",
     "lint-fix": "tslint 'src/**/*.ts' --fix",
-    "db:up": "db-migrate up --config config/database.json -e dev",
+    "db:up": "db-migrate up -e dev",
     "db:create": "db-migrate create"
   },
   "author": "Tina Maria Thomas",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "pg": "^7.4.3",
     "ts-node": "^6.0.2",
     "tslint": "^5.10.0",
     "typescript": "^2.8.3"
@@ -40,6 +43,7 @@
     "db-migrate": "^0.11.1",
     "db-migrate-pg": "^0.4.0",
     "jest": "^22.4.3",
+    "nodemon": "^1.17.4",
     "ts-jest": "^22.4.4"
   }
 }
