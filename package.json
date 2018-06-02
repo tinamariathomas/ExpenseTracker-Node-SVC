@@ -42,7 +42,7 @@
     "@types/jest": "^22.2.3",
     "db-migrate": "^0.11.1",
     "db-migrate-pg": "^0.4.0",
-    "jest": "^22.4.3",
+    "jest": "^23.1.0",
     "nodemon": "^1.17.4",
     "ts-jest": "^22.4.4"
   }

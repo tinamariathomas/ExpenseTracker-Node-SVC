@@ -1,26 +1,28 @@
-const { Client } = require('pg')
+import { Client } from "pg";
 
-export default class DBClient{
+export default class DBClient {
     private client;
 
-    constructor(){
+    constructor() {
         this.client = new Client({
-            user: process.env.USERNAME,
-            host: 'localhost',
-            database: 'expense_tracker'
+            database: "expense_tracker",
+            host: "localhost",
+            user: "tinamt",
         });
         this.client.connect();
     }
 
-    end(){
+    public end() {
         this.client.end();
     }
 
-    query(queryString: string){
-        this.client.query(queryString)
-            .then(res => console.log(res.rows[0]))
-            .catch(e => console.error(e.stack))
+    public insert(queryString: string) {
+        this.client.query(queryString);
+    }
 
+    public select(queryString: string) {
+        this.client.query(queryString)
+            .then((res) => console.log(res.rows));
     }
 
 }

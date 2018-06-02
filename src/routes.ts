@@ -1,10 +1,10 @@
 import {RequestHandler} from "express-serve-static-core";
-import healthCheckHandler from "./handlers/health";
 import expense from "./handlers/expense";
+import healthCheckHandler from "./handlers/health";
 
-enum Method{
-    get = 'get',
-    post = 'post',
+enum Method {
+    get = "get",
+    post = "post",
 }
 
 export interface IRoute {
@@ -13,16 +13,16 @@ export interface IRoute {
     method: Method;
 }
 
-const routes : IRoute[] = [
+const routes: IRoute[] = [
     {
-        path: '/',
         handler: healthCheckHandler,
-        method: Method.get
+        method: Method.get,
+        path: "/",
     },
     {
-        path: '/expense',
         handler: expense.create,
-        method: Method.post
+        method: Method.post,
+        path: "/expense",
     },
 ];
 

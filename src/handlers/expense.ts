@@ -1,12 +1,13 @@
-import Expense from '../models/expense';
+import Expense from "../models/expense";
 
-const createExpenseHandler = (req, res) => {
+const createExpenseHandler = async (req, res) => {
     const {description, amount} = req.body.data;
 
-    new Expense(description, amount).create();
+    await new Expense().create(description, amount);
+
     res.send(200);
 };
 
 export default {
-    create: createExpenseHandler
-}
+    create: createExpenseHandler,
+};
