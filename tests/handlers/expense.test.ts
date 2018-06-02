@@ -3,16 +3,20 @@ import Expense from "./../../src/models/expense";
 
 jest.mock('./../../src/models/expense');
 
-const mockCreateExpense = jest.fn().mockReturnValue(Promise.resolve());
-Expense.mockImplementation(() => {
-    return {
-        create: mockCreateExpense,
-    };
-});
-
 describe("Expense Handler", () => {
     const amount = 100;
     const description = 'Tooth Floss';
+    let mockCreateExpense;
+    
+    beforeEach(() => {
+        mockCreateExpense = jest.fn().mockReturnValue(Promise.resolve());
+        Expense.mockImplementation(() => {
+            return {
+                create: mockCreateExpense,
+            };
+        });
+
+    });
 
     it("should return correct response", async () => {
         const req = {body: {data:{amount, description}}};
